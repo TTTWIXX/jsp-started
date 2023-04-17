@@ -1,4 +1,3 @@
-
 package com.jsp.entity;
 
 import java.util.List;

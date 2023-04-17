@@ -1,24 +1,25 @@
 package com.jsp.repository;
 
-
 import com.jsp.entity.Dancer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-
-import static com.jsp.chap02.DancerRegProcessServlet.dancerMap;
+import java.util.Map;
 
 // 댄서 정보 저장소
 public class DancerRepository {
+
+    private final Map<String, Dancer> dancerMap = new HashMap<>();
 
     // 댄서 저장 기능
     public void save(String name, String crewName,
                      String danceLevel, String[] genresArray) {
         // Dancer 객체로 포장
-        com.jsp.entity.Dancer dancer = new com.jsp.entity.Dancer();
+        Dancer dancer = new Dancer();
         dancer.setName(name);
         dancer.setCrewName(crewName);
-        dancer.setDanceLevel(com.jsp.entity.Dancer.DanceLevel.valueOf(danceLevel));
+        dancer.setDanceLevel(Dancer.DanceLevel.valueOf(danceLevel));
 
         List<Dancer.Genre> genres = new ArrayList<>();
         if (genresArray != null) {
@@ -34,4 +35,20 @@ public class DancerRepository {
         // dancerList에 저장
         dancerMap.put(name, dancer);
     }
+
+    // 댄서 맵을 리스트로 변환해서 리턴하는 메서드
+    public List<Dancer> findAll() {
+
+        return new ArrayList<>(dancerMap.values());
+
+        /*return dancerMap.values().stream()
+                .collect(Collectors.toList());*/
+
+        /*List<Dancer> dancerList = new ArrayList<>();
+        for (Dancer dancer : dancerMap.values()) {
+            dancerList.add(dancer);
+        }
+        return dancerList;*/
+    }
+
 }

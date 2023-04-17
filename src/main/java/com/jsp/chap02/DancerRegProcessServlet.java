@@ -19,7 +19,7 @@ import java.util.Map;
 public class DancerRegProcessServlet extends HttpServlet {
 
     // 댄서들의 데이터베이스 역할 (key: 댄서명, value: 댄서객체)
-    public final static Map<String, Dancer> dancerMap = new HashMap();
+    private final static Map<String, Dancer> dancerMap = new HashMap();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,7 +37,6 @@ public class DancerRegProcessServlet extends HttpServlet {
         Dancer dancer = new Dancer();
         dancer.setName(name);
         dancer.setCrewName(crewName);
-        // 스트링을 enum으로 바꿀때 valueOf 메소드 사용
         dancer.setDanceLevel(Dancer.DanceLevel.valueOf(danceLevel));
 
         List<Dancer.Genre> genres = new ArrayList<>();

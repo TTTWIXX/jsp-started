@@ -38,5 +38,7 @@ public class JspStarterMain {
 
         tomcat.start();
         tomcat.getServer().await();
+
+
     }
 }

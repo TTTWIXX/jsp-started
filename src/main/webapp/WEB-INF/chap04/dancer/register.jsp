@@ -18,7 +18,7 @@
 <body>
 
 <h1>mvc 버전 댄서등록 폼</h1>
-<form action="/dancer/process" id="reg-form">
+<form action="/dancer/process" method="post" id="reg-form">
     <label>
         # 이름 : <input type="text" name="name">
     </label>

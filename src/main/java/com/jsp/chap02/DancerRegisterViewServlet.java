@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/chap02/dancer/register") // 화면 띄어주세요
+// 등록 화면 띄워주세요!
+@WebServlet("/chap02/dancer/register")
 public class DancerRegisterViewServlet extends HttpServlet {
 
     @Override
